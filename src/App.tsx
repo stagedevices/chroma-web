@@ -10,6 +10,7 @@ import Pro from "./pages/Pro";
 import Press from "./pages/Press";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
+import Support from "./pages/Support";
 
 const easing: [number, number, number, number] = [0.22, 0.8, 0.28, 1];
 
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/press" element={<Press />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </div>
         <Footer />

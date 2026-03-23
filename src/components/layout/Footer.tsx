@@ -99,11 +99,16 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold">Legal</h4>
+            <h4 className="text-sm font-semibold">Legal &amp; Support</h4>
             <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
               <li>
                 <Link className="transition hover:text-slate-900 dark:hover:text-white" to="/privacy">
                   Privacy
+                </Link>
+              </li>
+              <li>
+                <Link className="transition hover:text-slate-900 dark:hover:text-white" to="/support">
+                  Support
                 </Link>
               </li>
             </ul>
