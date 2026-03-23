@@ -26,10 +26,10 @@ export const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-             <button
+          {navItems.map((item) => (
+                    <button
                 key={item.section}
-                                     type="button"
+                                   type="button"
                 onClick={() => window.scrollTo({
                   top: document.getElementById(item.section)?.offsetTop || 0,
                   behavior: 'smooth'
@@ -37,7 +37,7 @@ export const Header = () => {
                 className={cn('text-sm font-medium transition-colors text-gray-400 hover:text-white')}
               >
                 {item.label}
-              </NavLink>
+                                   </button>
             ))}
           </nav>
 
