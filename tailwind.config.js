@@ -7,6 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
+          // enables `border-border`
+        border: 'rgba(255, 255, 255, 0.2)',
         chroma: {
           bg: '#000000',
           glass: 'rgba(255, 255, 255, 0.1)',
