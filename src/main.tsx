@@ -1,18 +1,19 @@
-import { createRoot } from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./lib/theme";
+import App from "./App";
+import "./styles/globals.css";
 
-import { ThemeProvider } from '@/contexts/ThemeContext';
-import App from './App';
-
-import './styles/index.css';
-
-const rootEl = document.getElementById('root');
-if (!rootEl) throw new Error('Missing #root element');
+const rootEl = document.getElementById("root");
+if (!rootEl) throw new Error("Missing #root element");
 
 createRoot(rootEl).render(
-  <ThemeProvider>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </ThemeProvider>
+  <React.StrictMode>
+    <ThemeProvider>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
+  </React.StrictMode>,
 );

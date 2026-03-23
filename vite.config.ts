@@ -1,22 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { getPrivacyStamp, getPressStamp } from "./scripts/privacy-stamp.mjs";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/chroma-web',
-    resolve: {
-        alias: {
-          '@': path.resolve(__dirname, 'src'),
-        },
-      },
-  build: {
-    outDir: 'dist',
-    sourcemap: true
-  }
-})
+  base: "/chroma-web/",
+  define: {
+    __PRIVACY_LAST_UPDATED__: JSON.stringify(getPrivacyStamp()),
+    __PRESS_LAST_UPDATED__: JSON.stringify(getPressStamp()),
+  },
+});

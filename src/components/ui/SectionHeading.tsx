@@ -1,37 +1,39 @@
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/cn';
-
 interface SectionHeadingProps {
+  overline?: string;
   title: string;
   subtitle?: string;
-  align?: 'left' | 'center';
+  align?: "left" | "center";
   className?: string;
 }
 
-export const SectionHeading = ({
-    title,
-    subtitle,
-    align = 'left',
-    className
+const SectionHeading = ({
+  overline,
+  title,
+  subtitle,
+  align = "left",
+  className,
 }: SectionHeadingProps) => {
-  const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
+  const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6 }}
-      className={cn(alignClass, 'mb-12 md:mb-16', className)}
+    <div
+      className={[alignClass, "mb-12 md:mb-16 max-w-3xl", className]
+        .filter(Boolean)
+        .join(" ")}
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+      {overline && (
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-teal-500 dark:text-teal-400">
+          {overline}
+        </p>
+      )}
+      <h2 className="text-3xl font-black leading-tight text-slate-900 dark:text-white md:text-4xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl">
-          {subtitle}
-        </p>
+        <p className="mt-4 text-lg text-slate-500 dark:text-slate-400">{subtitle}</p>
       )}
-    </motion.div>
+    </div>
   );
 };
+
+export default SectionHeading;

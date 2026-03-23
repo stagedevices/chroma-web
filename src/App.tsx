@@ -1,24 +1,45 @@
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { Route, Routes, useLocation } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
+import { useEffect } from "react";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import BackgroundField from "./components/layout/BackgroundField";
+import Home from "./pages/Home";
+import Modes from "./pages/Modes";
+import Pro from "./pages/Pro";
+import Press from "./pages/Press";
+import About from "./pages/About";
+import Privacy from "./pages/Privacy";
 
-import { Hero } from '@/components/sections/Hero';
-import { Demos } from '@/components/sections/Demos';
-import { Features } from '@/components/sections/Features';
-import { About } from '@/components/sections/About';
-import { Community } from '@/components/sections/Community';
+const easing: [number, number, number, number] = [0.22, 0.8, 0.28, 1];
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-chroma-bg">
-      <Header />
-      <main className="pt-16 md:pt-20">
-        <Hero />
-        <Demos />
-        <Features />
-        <About />
-        <Community />
-      </main>
-      <Footer />
-    </div>
+    <MotionConfig transition={{ duration: 0.6, ease: easing }}>
+      <div className="min-h-screen bg-chroma-bg text-slate-900 dark:text-slate-100 flex flex-col">
+        <BackgroundField />
+        <Header />
+        <ScrollToTop />
+        <div className="flex-1 pb-24 md:pb-0">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/modes" element={<Modes />} />
+            <Route path="/pro" element={<Pro />} />
+            <Route path="/press" element={<Press />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<Privacy />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </MotionConfig>
   );
 }
