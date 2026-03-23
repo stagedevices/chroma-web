@@ -1,8 +1,6 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Github } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export const Hero = () => {
   return (

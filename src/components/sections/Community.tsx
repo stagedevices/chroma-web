@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Github, MessageSquare, Mail, Users } from 'lucide-react';
+import { Github, MessageSquare, Mail } from 'lucide-react'; 
 
 export const Community = () => {
   return (

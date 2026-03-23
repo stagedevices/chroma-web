@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
 
 export const useScrollAnimation = (threshold = 0.1, once = true) => {
-  const { isDark } = useTheme();
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

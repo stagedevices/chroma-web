@@ -1,7 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Github } from 'lucide-react';
+import { cn } from '@/lib/cn';
 
 export const Header = () => {
   const navItems = [
@@ -27,19 +27,14 @@ export const Header = () => {
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <NavLink
+             <button
                 key={item.section}
-                to="#"
+                                     type="button"
                 onClick={() => window.scrollTo({
                   top: document.getElementById(item.section)?.offsetTop || 0,
                   behavior: 'smooth'
                 })}
-                className={({ isActive }) =>
-                  cn(
-                    'text-sm font-medium transition-colors',
-                    isActive ? 'text-white' : 'text-gray-400 hover:text-white'
-                  )
-                }
+                className={cn('text-sm font-medium transition-colors text-gray-400 hover:text-white')}
               >
                 {item.label}
               </NavLink>

@@ -1,9 +1,4 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import type { Section } from '@/types/site';
 
 export const scrollToSection = (section: Section, offset = 80) => {
   const element = document.getElementById(section);

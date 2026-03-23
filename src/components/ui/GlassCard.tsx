@@ -1,19 +1,19 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/cn';
+import type { ReactNode } from 'react';
 
 interface GlassCardProps {
-  children: React.ReactNode;
+    children: ReactNode;
   className?: string;
   hover?: boolean;
 }
 
-export const GlassCard: React.FC<GlassCardProps> = ({
-  children,
-  className,
-  hover = false
-}) => {
-  return (
+export const GlassCard = ({
+    children,
+    className,
+    hover = false
+}: GlassCardProps) => {
+    return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}

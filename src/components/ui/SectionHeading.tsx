@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/cn';
 
@@ -9,12 +8,12 @@ interface SectionHeadingProps {
   className?: string;
 }
 
-export const SectionHeading: React.FC<SectionHeadingProps> = ({
-  title,
-  subtitle,
-  align = 'left',
-  className
-}) => {
+export const SectionHeading = ({
+    title,
+    subtitle,
+    align = 'left',
+    className
+}: SectionHeadingProps) => {
   const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
 
   return (
